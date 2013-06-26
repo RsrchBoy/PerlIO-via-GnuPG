@@ -1,0 +1,28 @@
+# NAME
+
+PerlIO::via::GnuPG - Layer to try to decrypt on read
+
+# VERSION
+
+This document describes version 0.001 of PerlIO::via::GnuPG - released June 25, 2013 as part of PerlIO-via-GnuPG.
+
+# SYNOPSIS
+
+# DESCRIPTION
+
+# SOURCE
+
+The development version is on github at [http://github.com/RsrchBoy/PerlIO-via-GnuPG](http://github.com/RsrchBoy/PerlIO-via-GnuPG)
+and may be cloned from [git://github.com/RsrchBoy/PerlIO-via-GnuPG.git](git://github.com/RsrchBoy/PerlIO-via-GnuPG.git)
+
+# AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Chris Weyl.
+
+This is free software, licensed under:
+
+    The GNU Lesser General Public License, Version 2.1, February 1999
