@@ -14,6 +14,13 @@ use Symbol 'gensym';
 # gpg --decrypt -q --status-file aksdja --no-tty
 # gpg --decrypt -q --status-file aksdja --no-tty .pause.gpg
 
+# TODO need to doc PUSHED() and FILL()
+
+=func PUSHED
+
+=method FILL
+
+=cut
 
 sub PUSHED {
     my ($class, $mode) = @_;
