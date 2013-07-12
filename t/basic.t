@@ -2,10 +2,11 @@ use strict;
 use warnings;
 
 use Test::More;
-
 use PerlIO::via::GnuPG;
 
-open(my $fh, '<:via(GnuPG)', 't/input.txt.gpg')
+$ENV{GNUPGHOME} = './t/gpghome';
+
+open(my $fh, '<:via(GnuPG)', 't/input.txt.asc')
     or die "cannot open! $!";
 
 my @in = <$fh>;
