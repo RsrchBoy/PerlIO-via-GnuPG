@@ -12,7 +12,7 @@ install:
    - git config user.name 'Travis-CI'
    - git config user.email 'travis@nowhere.dne'
 
-   - gpg --recv-keys 8083A84A
+   - apt-get install gnupg
 
    # Deal with all of the DZIL dependancies, quickly and quietly
    - cpanm --quiet --notest Dist::Zilla
