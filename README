@@ -1,0 +1,51 @@
+NAME
+    PerlIO::via::GnuPG - Layer to try to decrypt on read
+
+VERSION
+    This document describes version 0.001 of PerlIO::via::GnuPG - released
+    July 14, 2013 as part of PerlIO-via-GnuPG.
+
+SYNOPSIS
+        use PerlIO::via::GnuPG;
+
+        open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
+            or die "cannot open! $!";
+
+        my @in = <$fh>; # or whatever...
+
+DESCRIPTION
+    This is a PerlIO module to decrypt files transparently. It's pretty
+    simple, does not support writing, but works.
+
+    ...and if it doesn't, please file an issue :)
+
+SEE ALSO
+    Please see those modules/websites for more information related to this
+    module.
+
+    *   PerlIO
+
+    *   PerlIO::via
+
+SOURCE
+    The development version is on github at
+    <http://github.com/RsrchBoy/PerlIO-via-GnuPG> and may be cloned from
+    <git://github.com/RsrchBoy/PerlIO-via-GnuPG.git>
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/RsrchBoy/PerlIO-via-GnuPG/issues
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    Chris Weyl <cweyl@alumni.drew.edu>
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2013 by Chris Weyl.
+
+    This is free software, licensed under:
+
+      The GNU Lesser General Public License, Version 2.1, February 1999
+
