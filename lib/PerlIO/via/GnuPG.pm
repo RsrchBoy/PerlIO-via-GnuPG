@@ -14,14 +14,6 @@ use Symbol 'gensym';
 # gpg --decrypt -q --status-file aksdja --no-tty
 # gpg --decrypt -q --status-file aksdja --no-tty .pause.gpg
 
-# TODO need to doc PUSHED() and FILL()
-
-=func PUSHED
-
-=method FILL
-
-=cut
-
 sub PUSHED {
     my ($class, $mode) = @_;
 
@@ -63,10 +55,28 @@ sub FILL {
 !!42;
 __END__
 
+=for Pod::Coverage FILL PUSHED
+
 =head1 SYNOPSIS
+
+    use PerlIO::via::GnuPG;
+
+    open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
+        or die "cannot open! $!";
+
+    my @in = <$fh>; # or whatever...
 
 =head1 DESCRIPTION
 
+This is a L<PerlIO> module to decrypt files transparently.  It's pretty
+simple, does not support writing, but works.
+
+...and if it doesn't, please file an issue :)
+
 =head1 SEE ALSO
+
+PerlIO
+
+PerlIO::via
 
 =cut
