@@ -1,3 +1,6 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.001     2013-07-14 00:28:36 CDT-0500
+	* first release
