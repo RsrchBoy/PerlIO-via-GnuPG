@@ -35,7 +35,7 @@ sub FILL {
 
     ### $maybe_encrypted
     my ($in, $out, $error) = (gensym, gensym, gensym);
-    my $run = "gpg -qd --no-tty --command-fd 0";
+    my $run = 'gpg -qd --no-tty --command-fd 0';
     my $pid = open3($in, $out, $error, $run);
 
     ### $pid
