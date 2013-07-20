@@ -1,6 +1,4 @@
-Revision history for {{$dist->name}}
-
-{{$NEXT}}
+Revision history for PerlIO-via-GnuPG
 
 0.002     2013-07-20 14:24:07 PDT-0700
 	* don't run our tests if the gpg executable is not present (pointless)
