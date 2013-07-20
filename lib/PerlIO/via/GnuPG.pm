@@ -17,11 +17,7 @@ use Symbol 'gensym';
 sub PUSHED {
     my ($class, $mode) = @_;
 
-    my $buffer;
-    return bless {
-        #buffer => undef, # \$buffer,
-    }, $class;
-    #return bless my \$buffer, $class;
+    return bless { }, $class;
 }
 
 sub FILL {
