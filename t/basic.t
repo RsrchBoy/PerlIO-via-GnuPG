@@ -2,6 +2,7 @@ use strict;
 use warnings;
 
 use Test::More;
+use Test::Skip::UnlessExistsExecutable 'gpg';
 use PerlIO::via::GnuPG;
 
 $ENV{GNUPGHOME} = './t/gpghome';
