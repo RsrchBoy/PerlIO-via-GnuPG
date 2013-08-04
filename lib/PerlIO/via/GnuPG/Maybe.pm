@@ -7,9 +7,6 @@ use warnings;
 
 use parent 'PerlIO::via::GnuPG';
 
-# debugging...
-use Smart::Comments '###';
-
 sub _passthrough_unencrypted { 1 }
 
 !!42;

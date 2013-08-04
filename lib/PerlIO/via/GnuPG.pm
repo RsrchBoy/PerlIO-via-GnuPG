@@ -8,9 +8,6 @@ use warnings;
 use IPC::Open3 'open3';
 use Symbol 'gensym';
 
-# debugging...
-use Smart::Comments '###';
-
 # gpg --decrypt -q --status-file aksdja --no-tty
 # gpg --decrypt -q --status-file aksdja --no-tty .pause.gpg
 
