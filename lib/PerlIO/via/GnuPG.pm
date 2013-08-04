@@ -9,7 +9,7 @@ use IPC::Open3 'open3';
 use Symbol 'gensym';
 
 # debugging...
-#use Smart::Comments '###';
+use Smart::Comments '###';
 
 # gpg --decrypt -q --status-file aksdja --no-tty
 # gpg --decrypt -q --status-file aksdja --no-tty .pause.gpg
@@ -19,6 +19,8 @@ sub PUSHED {
 
     return bless { }, $class;
 }
+
+sub _passthrough_unencrypted { 0 }
 
 sub FILL {
     my ($self, $fh) = @_;
@@ -37,12 +39,31 @@ sub FILL {
     ### $pid
     print $in $maybe_encrypted;
     close $in;
-    my @output    = <$out>;
-    my $error_msg = join '', <$error>;
+    my @output = <$out>;
+    my @errors = <$error>;
+
+    waitpid $pid, 0;
 
     ### @output
-    ### $error_msg
-    waitpid $pid, 0;
+    ### @errors
+
+    ### filter warnings out...
+    @errors = grep { ! /WARNING:/ } @errors;
+
+    if (@errors) {
+        my $not_encrypted = scalar grep { /no valid OpenPGP data found/ } @errors;
+
+        ### passthrough: $self->_passthrough_unencrypted
+        if ($not_encrypted) {
+            die "file does not appear to be encrypted!: @errors"
+                unless $self->_passthrough_unencrypted;
+            # FIXME @output = split /\n/, $maybe_encrypted;
+            @output = ($maybe_encrypted);
+        }
+        else {
+            die "Error decrypting file: @errors";
+        }
+    }
 
     $self->{buffer} = [ @output ];
     return shift @{ $self->{buffer} };
