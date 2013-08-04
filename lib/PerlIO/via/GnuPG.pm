@@ -73,6 +73,8 @@ __END__
 
 =head1 SYNOPSIS
 
+    use PerlIO::via::GnuPG;
+
     open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
         or die "cannot open! $!";
 

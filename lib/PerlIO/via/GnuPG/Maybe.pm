@@ -1,6 +1,6 @@
 package PerlIO::via::GnuPG::Maybe;
 
-# ABSTRACT: Layer to decrypt or passthrough unencrypted data on read
+# ABSTRACT: Layer to decrypt or pass-through unencrypted data on read
 
 use strict;
 use warnings;
@@ -16,6 +16,8 @@ __END__
 
 =head1 SYNOPSIS
 
+    use PerlIO::via::GnuPG::Maybe;
+
     # cleartext.txt may or may not be encrypted/decryptable
     open(my $fh, '<:via(GnuPG::Maybe)', 'cleartext.txt')
         or die "cannot open! $!";
@@ -26,7 +28,8 @@ __END__
 
 This is a L<PerlIO> module to decrypt files transparently.  If you try to
 open and read a file that is not encrypted, we will simply pass that file
-through unmolested.
+through unmolested.  If you try to open and read one that is, we will try
+to decrypt it and pass it back along to you.
 
 It's pretty simple, does not support writing, but works.
 
