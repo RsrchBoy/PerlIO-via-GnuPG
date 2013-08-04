@@ -76,8 +76,6 @@ __END__
 
 =head1 SYNOPSIS
 
-    use PerlIO::via::GnuPG;
-
     open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
         or die "cannot open! $!";
 
@@ -91,6 +89,8 @@ simple, does not support writing, but works.
 ...and if it doesn't, please file an issue :)
 
 =head1 SEE ALSO
+
+PerlIO::via::GnuPG::Maybe
 
 PerlIO
 
