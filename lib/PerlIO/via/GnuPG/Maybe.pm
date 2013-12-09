@@ -18,7 +18,8 @@ __END__
 
     use PerlIO::via::GnuPG::Maybe;
 
-    # cleartext.txt may or may not be encrypted/decryptable
+    # cleartext.txt may or may not be encrypted;
+    # returns the content or dies on any other error.
     open(my $fh, '<:via(GnuPG::Maybe)', 'cleartext.txt')
         or die "cannot open! $!";
 
@@ -28,10 +29,13 @@ __END__
 
 This is a L<PerlIO> module to decrypt files transparently.  If you try to
 open and read a file that is not encrypted, we will simply pass that file
-through unmolested.  If you try to open and read one that is, we will try
-to decrypt it and pass it back along to you.
+through unmolested.  If you try to open and read one that is encrypted,
+it tries to decrypt it and pass it back along to you.
 
-It's pretty simple, does not support writing, but works.
+If you're looking for a stricter implementation, see L<PerlIO::via::GnuPG>;
+it will die if the file is unencrypted.
+
+It's pretty simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 

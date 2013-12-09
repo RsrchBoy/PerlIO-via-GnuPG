@@ -75,6 +75,7 @@ __END__
 
     use PerlIO::via::GnuPG;
 
+    # dies on error, and if the file is not encrypted
     open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
         or die "cannot open! $!";
 
@@ -83,7 +84,7 @@ __END__
 =head1 DESCRIPTION
 
 This is a L<PerlIO> module to decrypt files transparently.  It's pretty
-simple, does not support writing, but works.
+simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 
