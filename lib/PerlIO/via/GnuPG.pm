@@ -71,6 +71,8 @@ __END__
 
 =for Pod::Coverage FILL PUSHED
 
+=for :stopwords decrypt
+
 =head1 SYNOPSIS
 
     use PerlIO::via::GnuPG;

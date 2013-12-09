@@ -12,6 +12,8 @@ sub _passthrough_unencrypted { 1 }
 !!42;
 __END__
 
+=for :stopwords decrypt
+
 =for Pod::Coverage FILL PUSHED
 
 =head1 SYNOPSIS
