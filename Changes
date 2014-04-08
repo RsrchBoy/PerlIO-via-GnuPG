@@ -1,6 +1,4 @@
-Revision history for {{$dist->name}}
-
-{{$NEXT}}
+Revision history for PerlIO-via-GnuPG
 
 0.003     2014-04-08 01:11:07 PDT-0700
 	* Add PerlIO::via::GnuPG::Maybe
