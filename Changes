@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.003     2014-04-08 01:11:07 PDT-0700
+	* Add PerlIO::via::GnuPG::Maybe
+	* Additional tests, POD, mode changes
+
 0.002     2013-07-20 14:24:07 PDT-0700
 	* don't run our tests if the gpg executable is not present (pointless)
 	* travis config changes to run 5.8 (but allow it to fail) and not test

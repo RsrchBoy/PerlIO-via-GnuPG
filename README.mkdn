@@ -4,12 +4,13 @@ PerlIO::via::GnuPG - Layer to try to decrypt on read
 
 # VERSION
 
-This document describes version 0.002 of PerlIO::via::GnuPG - released July 20, 2013 as part of PerlIO-via-GnuPG.
+This document describes version 0.003 of PerlIO::via::GnuPG - released April 08, 2014 as part of PerlIO-via-GnuPG.
 
 # SYNOPSIS
 
     use PerlIO::via::GnuPG;
 
+    # dies on error, and if the file is not encrypted
     open(my $fh, '<:via(GnuPG)', 'secret.txt.asc')
         or die "cannot open! $!";
 
@@ -17,8 +18,8 @@ This document describes version 0.002 of PerlIO::via::GnuPG - released July 20, 
 
 # DESCRIPTION
 
-This is a [PerlIO](http://search.cpan.org/perldoc?PerlIO) module to decrypt files transparently.  It's pretty
-simple, does not support writing, but works.
+This is a [PerlIO](https://metacpan.org/pod/PerlIO) module to decrypt files transparently.  It's pretty
+simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 
@@ -26,8 +27,9 @@ simple, does not support writing, but works.
 
 Please see those modules/websites for more information related to this module.
 
-- [PerlIO](http://search.cpan.org/perldoc?PerlIO)
-- [PerlIO::via](http://search.cpan.org/perldoc?PerlIO::via)
+- [PerlIO::via::GnuPG::Maybe](https://metacpan.org/pod/PerlIO::via::GnuPG::Maybe)
+- [PerlIO](https://metacpan.org/pod/PerlIO)
+- [PerlIO::via](https://metacpan.org/pod/PerlIO::via)
 
 # SOURCE
 
