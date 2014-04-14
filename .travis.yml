@@ -7,25 +7,32 @@ perl:
    - "5.16"
    - "5.18"
 
+env:
+    matrix:
+        - TARGET_LOCALE=en_US.UTF-8
+        - TARGET_LOCALE=ru_RU.UTF-8
+        - TARGET_LOCALE=latin1
+        #- LC_ALL=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
+        #- LC_ALL=ru_RU.UTF-8 LC_CTYPE=ru_RU.UTF-8 LANG=ru_RU.UTF-8
+
 branches:
     except:
         - "release/cpan"
 
 before_install:
-   # git bits sometimes needed...
-   - git config user.name 'Travis-CI'
-   - git config user.email 'travis@nowhere.dne'
+    - sudo apt-get update && sudo apt-get install language-pack-ru
+    - sudo locale-gen $TARGET_LOCALE
+    - sudo dpkg-reconfigure locales
+    - export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
 
-   # gotta love failing pod tests blowing everything up...
-   - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
+    # gotta love failing pod tests blowing everything up...
+    - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
 
 install:
-   # not so much install our package as all its prereqs
-   - export HARNESS_SUBCLASS=TAP::Harness::Restricted
-   - cpanm --installdeps .
+    # not so much install our package as all its prereqs
+    - export HARNESS_SUBCLASS=TAP::Harness::Restricted
+    - cpanm --installdeps .
 
 script:
-   - export DZSIGN=archive
-   - unset HARNESS_SUBCLASS
-   #- dzil test --release --author
-   - prove -lr t/
+    - unset HARNESS_SUBCLASS
+    - prove -lr t/
