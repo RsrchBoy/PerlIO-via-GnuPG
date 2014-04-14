@@ -1,4 +1,18 @@
+#
+# This file is part of PerlIO-via-GnuPG
+#
+# This software is Copyright (c) 2013 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package PerlIO::via::GnuPG;
+BEGIN {
+  $PerlIO::via::GnuPG::AUTHORITY = 'cpan:RSRCHBOY';
+}
+# git description: 0.003-7-gb91cfad
+$PerlIO::via::GnuPG::VERSION = '0.004';
 
 # ABSTRACT: Layer to try to decrypt on read
 
@@ -88,11 +102,22 @@ sub FILL {
 }
 
 !!42;
+
 __END__
 
-=for Pod::Coverage FILL PUSHED
+=pod
 
-=for :stopwords decrypt
+=encoding UTF-8
+
+=for :stopwords Chris Weyl decrypt
+
+=head1 NAME
+
+PerlIO::via::GnuPG - Layer to try to decrypt on read
+
+=head1 VERSION
+
+This document describes version 0.004 of PerlIO::via::GnuPG - released April 14, 2014 as part of PerlIO-via-GnuPG.
 
 =head1 SYNOPSIS
 
@@ -111,6 +136,8 @@ simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 
+=for Pod::Coverage FILL PUSHED
+
 =head1 CUSTOM WARNING CATEGORIES
 
 This package emits warnings from time to time.  To disable warnings generated
@@ -124,10 +151,48 @@ Likewise, to disable all warnings issued by this package:
 
 =head1 SEE ALSO
 
-PerlIO::via::GnuPG::Maybe
+Please see those modules/websites for more information related to this module.
 
-PerlIO
+=over 4
 
-PerlIO::via
+=item *
+
+L<PerlIO::via::GnuPG::Maybe|PerlIO::via::GnuPG::Maybe>
+
+=item *
+
+L<PerlIO|PerlIO>
+
+=item *
+
+L<PerlIO::via|PerlIO::via>
+
+=back
+
+=head1 SOURCE
+
+The development version is on github at L<http://https://github.com/RsrchBoy/PerlIO-via-GnuPG>
+and may be cloned from L<git://https://github.com/RsrchBoy/PerlIO-via-GnuPG.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/PerlIO-via-GnuPG/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut

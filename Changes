@@ -1,6 +1,4 @@
-Revision history for {{$dist->name}}
-
-{{$NEXT}}
+Revision history for PerlIO-via-GnuPG
 
 0.004     2014-04-14 14:33:13 PDT-0700
 	* Refactor passthrough logic
