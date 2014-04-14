@@ -4,7 +4,7 @@ PerlIO::via::GnuPG - Layer to try to decrypt on read
 
 # VERSION
 
-This document describes version 0.003\_01 of PerlIO::via::GnuPG - released April 14, 2014 as part of PerlIO-via-GnuPG.
+This document describes version 0.004 of PerlIO::via::GnuPG - released April 14, 2014 as part of PerlIO-via-GnuPG.
 
 # SYNOPSIS
 

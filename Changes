@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.004     2014-04-14 14:33:13 PDT-0700
+	* Refactor passthrough logic
+	* Add custom warning categories
+
 0.003     2014-04-08 01:11:07 PDT-0700
 	* Add PerlIO::via::GnuPG::Maybe
 	* Additional tests, POD, mode changes
