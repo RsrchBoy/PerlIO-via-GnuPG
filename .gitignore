@@ -17,3 +17,4 @@ MYMETA.*
 .build/
 releases/
 PerlIO-via-GnuPG-*
+t/gpghome/random_seed
