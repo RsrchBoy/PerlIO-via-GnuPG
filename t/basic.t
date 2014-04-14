@@ -8,6 +8,8 @@ use PerlIO::via::GnuPG::Maybe;
 
 $ENV{GNUPGHOME} = './t/gpghome';
 
+# TODO: need warnings, death tests
+
 subtest ':via(GnuPG) opening encrypted text' => sub {
     open(my $fh, '<:via(GnuPG)', 't/input.txt.asc')
         or die "cannot open! $!";
@@ -22,6 +24,7 @@ subtest ':via(GnuPG) opening encrypted text' => sub {
 };
 
 subtest ':via(GnuPG::Maybe) opening encrypted text' => sub {
+
     open(my $fh, '<:via(GnuPG::Maybe)', 't/input.txt.asc')
         or die "cannot open! $!";
 
@@ -35,6 +38,9 @@ subtest ':via(GnuPG::Maybe) opening encrypted text' => sub {
 };
 
 subtest ':via(GnuPG::Maybe) opening unencrypted text' => sub {
+
+    no warnings 'PerlIO::via::GnuPG::unencrypted';
+
     open(my $fh, '<:via(GnuPG::Maybe)', 't/input.txt')
         or die "cannot open! $!";
 

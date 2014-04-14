@@ -66,7 +66,10 @@ sub FILL {
         if ($not_encrypted) {
 
             if ($self->_passthrough_unencrypted) {
-                warnings::warnif("File does not appear to be encrypted!: @$errors");
+                warnings::warnif(
+                    'PerlIO::via::GnuPG::unencrypted',
+                    'File does not appear to be encrypted!',
+                );
                 @output = ($maybe_encrypted);
             }
             else {
