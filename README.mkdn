@@ -4,7 +4,7 @@ PerlIO::via::GnuPG - Layer to try to decrypt on read
 
 # VERSION
 
-This document describes version 0.003 of PerlIO::via::GnuPG - released April 08, 2014 as part of PerlIO-via-GnuPG.
+This document describes version 0.003\_01 of PerlIO::via::GnuPG - released April 14, 2014 as part of PerlIO-via-GnuPG.
 
 # SYNOPSIS
 
@@ -23,6 +23,17 @@ simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 
+# CUSTOM WARNING CATEGORIES
+
+This package emits warnings from time to time.  To disable warnings generated
+when passing through unencrypted data:
+
+    no warnings 'PerlIO::via::GnuPG::unencrypted';
+
+Likewise, to disable all warnings issued by this package:
+
+    no warnings 'PerlIO::via::GnuPG';
+
 # SEE ALSO
 
 Please see those modules/websites for more information related to this module.
@@ -33,8 +44,8 @@ Please see those modules/websites for more information related to this module.
 
 # SOURCE
 
-The development version is on github at [http://github.com/RsrchBoy/PerlIO-via-GnuPG](http://github.com/RsrchBoy/PerlIO-via-GnuPG)
-and may be cloned from [git://github.com/RsrchBoy/PerlIO-via-GnuPG.git](git://github.com/RsrchBoy/PerlIO-via-GnuPG.git)
+The development version is on github at [http://https://github.com/RsrchBoy/PerlIO-via-GnuPG](http://https://github.com/RsrchBoy/PerlIO-via-GnuPG)
+and may be cloned from [git://https://github.com/RsrchBoy/PerlIO-via-GnuPG.git](git://https://github.com/RsrchBoy/PerlIO-via-GnuPG.git)
 
 # BUGS
 
