@@ -111,6 +111,17 @@ simple and does not support writing, but works.
 
 ...and if it doesn't, please file an issue :)
 
+=head1 CUSTOM WARNING CATEGORIES
+
+This package emits warnings from time to time.  To disable warnings generated
+when passing through unencrypted data:
+
+    no warnings 'PerlIO::via::GnuPG::unencrypted';
+
+Likewise, to disable all warnings issued by this package:
+
+    no warnings 'PerlIO::via::GnuPG';
+
 =head1 SEE ALSO
 
 PerlIO::via::GnuPG::Maybe
