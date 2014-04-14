@@ -3,10 +3,15 @@ package PerlIO::via::GnuPG;
 # ABSTRACT: Layer to try to decrypt on read
 
 use strict;
+use warnings::register qw{ unencrypted };
+#use warnings::register;
 use warnings;
+
+use autodie 2.25;
 
 use IPC::Open3 'open3';
 use Symbol 'gensym';
+use List::AllUtils 'part';
 
 # gpg --decrypt -q --status-file aksdja --no-tty
 # gpg --decrypt -q --status-file aksdja --no-tty .pause.gpg
@@ -45,20 +50,33 @@ sub FILL {
     ### @errors
 
     ### filter warnings out...
-    @errors = grep { ! /WARNING:/ } @errors;
+    chomp @errors;
+    my ($errors, $warnings) = map { $_ || [] } part { /WARNING:/ ? 1 : 0 } @errors;
 
-    if (@errors) {
-        my $not_encrypted = scalar grep { /no valid OpenPGP data found/ } @errors;
+    ### $warnings
+    warnings::warnif(@$warnings)
+        if !!$warnings && @$warnings;
 
+    if (!!$errors && @$errors) {
+
+        my $not_encrypted = scalar grep { /no valid OpenPGP data found/ } @$errors;
+
+        ### $not_encrypted
         ### passthrough: $self->_passthrough_unencrypted
         if ($not_encrypted) {
-            die "file does not appear to be encrypted!: @errors"
-                unless $self->_passthrough_unencrypted;
-            # FIXME @output = split /\n/, $maybe_encrypted;
-            @output = ($maybe_encrypted);
+
+            if ($self->_passthrough_unencrypted) {
+                warnings::warnif("File does not appear to be encrypted!: @$errors");
+                @output = ($maybe_encrypted);
+            }
+            else {
+                die "File does not appear to be encrypted!";
+            }
         }
         else {
-            die "Error decrypting file: @errors";
+
+            # "@errors" here is intentional -- show the warnings, too
+            die "Errors while attempting decryption: @errors";
         }
     }
 
