@@ -1,9 +1,12 @@
 requires "IPC::Open3" => "0";
+requires "List::AllUtils" => "0";
 requires "Symbol" => "0";
+requires "autodie" => "2.25";
 requires "parent" => "0";
 requires "perl" => "5.006";
 requires "strict" => "0";
 requires "warnings" => "0";
+requires "warnings::register" => "0";
 
 on 'test' => sub {
   requires "File::Spec" => "0";
