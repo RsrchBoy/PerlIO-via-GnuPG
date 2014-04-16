@@ -16,7 +16,8 @@ env:
         - TARGET_LOCALE=de_DE.ISO8859-1 NEW_LOCALE_PKGS='language-pack-de'
 
 before_install:
-    - if [ "$NEW_LOCALE_PKGS" ] ; then sudo apt-get update && sudo apt-get install language-pack-ru ; fi
+    - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get update && sudo apt-get install $NEW_LOCALE_PKGS ; fi
+    - sudo dpkg-reconfigure locales
     - sudo locale-gen $TARGET_LOCALE
     - export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
 
