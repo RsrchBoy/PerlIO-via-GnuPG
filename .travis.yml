@@ -15,10 +15,6 @@ env:
         - TARGET_LOCALE=POSIX
         - TARGET_LOCALE=de_DE.ISO8859-1
 
-branches:
-    except:
-        - "release/cpan"
-
 before_install:
     - sudo apt-get update && sudo apt-get install language-pack-ru
     - sudo locale-gen $TARGET_LOCALE
