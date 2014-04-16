@@ -9,21 +9,17 @@ perl:
 
 env:
     matrix:
-        - TARGET_LOCALE=en_US.UTF-8
-        - TARGET_LOCALE=ru_RU.UTF-8
-        - TARGET_LOCALE=latin1
-        #- LC_ALL=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
-        #- LC_ALL=ru_RU.UTF-8 LC_CTYPE=ru_RU.UTF-8 LANG=ru_RU.UTF-8
-
-branches:
-    except:
-        - "release/cpan"
+        - TARGET_LOCALE=en_US.UTF-8     NEW_LOCALE_PKGS=''
+        - TARGET_LOCALE=ru_RU.UTF-8     NEW_LOCALE_PKGS='language-pack-ru'
+        - TARGET_LOCALE=C               NEW_LOCALE_PKGS=''
+        - TARGET_LOCALE=POSIX           NEW_LOCALE_PKGS=''
+        - TARGET_LOCALE=de_DE.ISO8859-1 NEW_LOCALE_PKGS='language-pack-de'
+        -
 
 before_install:
-    - sudo apt-get update && sudo apt-get install language-pack-ru
-    - sudo locale-gen $TARGET_LOCALE
-    - sudo dpkg-reconfigure locales
-    - export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
+    - locale -a
+    - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; sudo dpkg-reconfigure locales ; fi
+    - export LANG="$TARGET_LOCALE" LC_MESSAGES="POSIX"
 
     # gotta love failing pod tests blowing everything up...
     - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
