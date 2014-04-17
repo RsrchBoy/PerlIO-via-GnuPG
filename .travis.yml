@@ -16,10 +16,12 @@ env:
         - TARGET_LOCALE=de_DE.ISO8859-1 NEW_LOCALE_PKGS='language-pack-de'
 
 before_install:
+    - locale -a
     - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; fi
-    - sudo dpkg-reconfigure locales
-    - sudo locale-gen $TARGET_LOCALE
-    - export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
+    #- sudo dpkg-reconfigure locales
+    - sudo locale-gen "$TARGET_LOCALE"
+    #- export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
+    - export LANG="$TARGET_LOCALE" LC_MESSAGES="POSIX"
 
     # gotta love failing pod tests blowing everything up...
     - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
