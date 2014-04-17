@@ -17,7 +17,7 @@ env:
 
 before_install:
     - locale -a
-    - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; fi
+    #- if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; fi
     #- sudo dpkg-reconfigure locales
     - sudo locale-gen "$TARGET_LOCALE"
     #- export LC_ALL="$TARGET_LOCALE" LC_CTYPE="$TARGET_LOCALE" LANG="$TARGET_LOCALE"
