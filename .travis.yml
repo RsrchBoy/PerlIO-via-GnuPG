@@ -11,7 +11,6 @@ env:
     matrix:
         - TARGET_LOCALE=en_US.UTF-8     NEW_LOCALE_PKGS=''
         - TARGET_LOCALE=ru_RU.UTF-8     NEW_LOCALE_PKGS='language-pack-ru'
-        - TARGET_LOCALE=C               NEW_LOCALE_PKGS=''
         - TARGET_LOCALE=POSIX           NEW_LOCALE_PKGS=''
         - TARGET_LOCALE=de_DE.ISO8859-1 NEW_LOCALE_PKGS='language-pack-de'
         -
@@ -19,16 +18,16 @@ env:
 before_install:
     - locale -a
     - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; sudo dpkg-reconfigure locales ; fi
-    - export LANG="$TARGET_LOCALE" LC_MESSAGES="POSIX"
+    - if [ -n "$TARGET_LOCALE" ] ; then export LANG="$TARGET_LOCALE" ; fi
 
     # gotta love failing pod tests blowing everything up...
     - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
 
-install:
     # not so much install our package as all its prereqs
-    - export HARNESS_SUBCLASS=TAP::Harness::Restricted
-    - cpanm --installdeps .
+    - HARNESS_SUBCLASS=TAP::Harness::Restricted cpanm --installdeps .
+
+install:
+    - true
 
 script:
-    - unset HARNESS_SUBCLASS
     - prove -lr t/
