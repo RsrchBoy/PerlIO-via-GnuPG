@@ -1,33 +1,42 @@
+# Travis config for @RsrchBoy's p5 packages.
+#
+# Kinda.
+#
+# GistID: 31e0e356a6233e5ee730
+# Chris Weyl <cweyl@alumni.drew.edu> 2015
+
+# use the docker/container based infrastructure
+sudo: false
+
 language: perl
 perl:
-   - "5.8"
-   - "5.10"
-   - "5.12"
-   - "5.14"
-   - "5.16"
-   - "5.18"
+    - "5.8"
+    - "5.10"
+    - "5.12"
+    - "5.14"
+    - "5.16"
+    - "5.18"
+    - "5.20"
 
-env:
-    matrix:
-        - TARGET_LOCALE=en_US.UTF-8     NEW_LOCALE_PKGS=''
-        - TARGET_LOCALE=ru_RU.UTF-8     NEW_LOCALE_PKGS='language-pack-ru'
-        - TARGET_LOCALE=POSIX           NEW_LOCALE_PKGS=''
-        - TARGET_LOCALE=de_DE.ISO8859-1 NEW_LOCALE_PKGS='language-pack-de'
-        -
+matrix:
+    allow_failures:
+        - perl: "5.8"
+
+branches:
+    except:
+        - "release/cpan"
+
+#env:
+   #global:
+      #- CPANM_OPTS="-q --skip-satisfied --notest --no-man-pages"
 
 before_install:
-    - locale -a
-    - if [ -n "$NEW_LOCALE_PKGS" ] ; then sudo apt-get install $NEW_LOCALE_PKGS ; sudo dpkg-reconfigure locales ; fi
-    - if [ -n "$TARGET_LOCALE" ] ; then export LANG="$TARGET_LOCALE" ; fi
-
-    # gotta love failing pod tests blowing everything up...
-    - cpanm -q TAP::Harness::Restricted || { cat ~/.cpanm/build.log ; false ; }
-
-    # not so much install our package as all its prereqs
-    - HARNESS_SUBCLASS=TAP::Harness::Restricted cpanm --installdeps .
+    - git clone --depth=1 --branch=master https://github.com/RsrchBoy/travis-p5-cache.git ../p5
+    - source ../p5/init
+    - ../p5/before-install.dzil
 
 install:
-    - true
+    - ../p5/install.dzil
 
 script:
-    - prove -lr t/
+    - ../p5/script.dzil
