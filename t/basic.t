@@ -8,6 +8,11 @@ use PerlIO::via::GnuPG::Maybe;
 
 $ENV{GNUPGHOME} = './t/gpghome';
 
+# this is nice, not mandatory -- that is, it just quiets down any "unsafe
+# perms!" warnings -- so ignoring any errors that might occur here is
+# intentional.
+chmod 0700 => $ENV{GNUPGHOME};
+
 # TODO: need warnings, death tests
 
 subtest ':via(GnuPG) opening encrypted text' => sub {
