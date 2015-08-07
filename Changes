@@ -1,6 +1,4 @@
-Revision history for {{$dist->name}}
-
-{{$NEXT}}
+Revision history for PerlIO-via-GnuPG
 
 0.005     2015-08-07 15:30:12 PDT-0700
 	* Explicitly make v5.14 our minimum supported version of Perl.  This isn't
