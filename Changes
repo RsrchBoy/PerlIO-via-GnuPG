@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+	* Explicitly make v5.14 our minimum supported version of Perl.  This isn't
+	  really a change from the status quo, but at least we're actually being
+	  up-front about it now.
 
 0.004     2014-04-14 14:33:13 PDT-0700
 	* Refactor passthrough logic

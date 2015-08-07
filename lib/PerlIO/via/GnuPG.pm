@@ -2,6 +2,9 @@ package PerlIO::via::GnuPG;
 
 # ABSTRACT: Layer to try to decrypt on read
 
+# required for how we're registering a warnings category
+use v5.14;
+
 use strict;
 use warnings::register qw{ unencrypted };
 #use warnings::register;
