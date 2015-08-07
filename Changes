@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.005     2015-08-07 15:30:12 PDT-0700
 	* Explicitly make v5.14 our minimum supported version of Perl.  This isn't
 	  really a change from the status quo, but at least we're actually being
 	  up-front about it now.
