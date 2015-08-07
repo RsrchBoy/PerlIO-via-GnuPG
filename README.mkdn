@@ -1,10 +1,14 @@
+[![Build Status](https://travis-ci.org/RsrchBoy/perlio-via-gnupg.svg?branch=master)](https://travis-ci.org/RsrchBoy/perlio-via-gnupg)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/PerlIO-via-GnuPG.png)](http://cpants.charsbar.org/dist/overview/PerlIO-via-GnuPG)
+[![Coverage Status](https://coveralls.io/repos/RsrchBoy/perlio-via-gnupg/badge.png?branch=master)](https://coveralls.io/r/RsrchBoy/perlio-via-gnupg?branch=master)
+
 # NAME
 
 PerlIO::via::GnuPG - Layer to try to decrypt on read
 
 # VERSION
 
-This document describes version 0.004 of PerlIO::via::GnuPG - released April 14, 2014 as part of PerlIO-via-GnuPG.
+This document describes version 0.005 of PerlIO::via::GnuPG - released August 07, 2015 as part of PerlIO-via-GnuPG.
 
 # SYNOPSIS
 
@@ -42,15 +46,10 @@ Please see those modules/websites for more information related to this module.
 - [PerlIO](https://metacpan.org/pod/PerlIO)
 - [PerlIO::via](https://metacpan.org/pod/PerlIO::via)
 
-# SOURCE
-
-The development version is on github at [http://https://github.com/RsrchBoy/PerlIO-via-GnuPG](http://https://github.com/RsrchBoy/PerlIO-via-GnuPG)
-and may be cloned from [git://https://github.com/RsrchBoy/PerlIO-via-GnuPG.git](git://https://github.com/RsrchBoy/PerlIO-via-GnuPG.git)
-
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/PerlIO-via-GnuPG/issues
+https://github.com/RsrchBoy/perlio-via-gnupg/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
@@ -59,6 +58,23 @@ feature.
 # AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+## I'm a material boy in a material world
+
+<div>
+    <a href="https://gratipay.com/RsrchBoy/"><img src="http://img.shields.io/gratipay/RsrchBoy.svg" /></a>
+    <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fperlio-via-gnupg&title=RsrchBoy's%20CPAN%20PerlIO-via-GnuPG&tags=%22RsrchBoy's%20PerlIO-via-GnuPG%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+</div>
+
+Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
+rather **it is simply a very pleasant surprise**. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you if you feel like it ;)
+
+[Flattr](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fperlio-via-gnupg&title=RsrchBoy&#x27;s%20CPAN%20PerlIO-via-GnuPG&tags=%22RsrchBoy&#x27;s%20PerlIO-via-GnuPG%20in%20the%20CPAN%22),
+[Gratipay](https://gratipay.com/RsrchBoy/), or indulge my
+[Amazon Wishlist](http://bit.ly/rsrchboys-wishlist)...  If and \*only\* if you so desire.
 
 # COPYRIGHT AND LICENSE
 
