@@ -24,6 +24,7 @@ on 'test' => sub {
 };
 
 on 'configure' => sub {
+  requires "Devel::CheckBin" => "0";
   requires "ExtUtils::MakeMaker" => "0";
   requires "perl" => "v5.14.0";
 };
@@ -31,6 +32,7 @@ on 'configure' => sub {
 on 'develop' => sub {
   requires "Dist::Zilla::PluginBundle::RSRCHBOY" => "0.066";
   requires "Pod::Coverage::TrustPod" => "0";
+  requires "Pod::Wordlist" => "0";
   requires "Test::EOL" => "0";
   requires "Test::More" => "0.88";
   requires "Test::NoTabs" => "0";
