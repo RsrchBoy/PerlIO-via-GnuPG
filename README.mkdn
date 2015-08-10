@@ -8,7 +8,7 @@ PerlIO::via::GnuPG - Layer to try to decrypt on read
 
 # VERSION
 
-This document describes version 0.005 of PerlIO::via::GnuPG - released August 07, 2015 as part of PerlIO-via-GnuPG.
+This document describes version 0.006 of PerlIO::via::GnuPG - released August 10, 2015 as part of PerlIO-via-GnuPG.
 
 # SYNOPSIS
 
