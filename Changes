@@ -1,6 +1,4 @@
-Revision history for {{$dist->name}}
-
-{{$NEXT}}
+Revision history for PerlIO-via-GnuPG
 
 0.006     2015-08-10 16:51:45 PDT-0700
 	* We now check for 'gpg' on distribution configuration.
